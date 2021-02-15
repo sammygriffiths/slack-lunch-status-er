@@ -1,0 +1,25 @@
+{
+    "apiKey": "SLACK_API_KEY",
+    "channel": "https://api.slack.com/methods/chat.postMessage#arg_channel",
+    "expireIn": 30 //Expire status in seconds,
+    "words": [
+        "Getting",
+        "Sourcing",
+        "Grabbing",
+        "Going for",
+        "Getting my hands on",
+        "Off for",
+        "Gannin' for"
+    ],
+    "emojis": [
+        "pizza",
+        "hamburger",
+        "poultry_leg",
+        "shallow_pan_of_food",
+        "spaghetti",
+        "meat_on_bone",
+        "ramen",
+        "stew",
+        "potato"
+    ]
+}
