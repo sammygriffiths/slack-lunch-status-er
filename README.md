@@ -1,0 +1,1 @@
+To use simply copy `config.json.example` to `config.json`, set the options as appropriate, then run `npm start` when you want to post your message and set your status.
