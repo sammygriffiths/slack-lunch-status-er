@@ -1,6 +1,6 @@
 const { WebClient, LogLevel } = require('@slack/web-api');
 const config = require('./config.json');
-const words  = config.words;
+const statuses  = config.statuses;
 const emojis = config.emojis;
 
 const run = async () => {
@@ -8,22 +8,22 @@ const run = async () => {
         logLevel: LogLevel.DEBUG
     });
 
-    const word        = words[Math.floor(Math.random() * words.length)];
-    const textEmoji   = emojis[Math.floor(Math.random() * emojis.length)];
+    const status      = statuses[Math.floor(Math.random() * statuses.length)];
     const statusEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 
-    client.chat.postMessage({
-        channel: config.channel,
-        text: `${word} some lunch :${textEmoji}:`
-    }).catch(console.error);
+    console.log({
+        status_text: status,
+        status_emoji: `:${statusEmoji}:`,
+        status_expiration: (Date.now() / 1000) + (config.expireIn * 60)
+    });
 
-    client.users.profile.set({
-        profile: {
-            status_text: 'Lunch',
-            status_emoji: `:${statusEmoji}:`,
-            status_expiration: (Date.now() / 1000) + (config.expireIn * 60)
-        }
-    }).catch(console.error);
+    // client.users.profile.set({
+    //     profile: {
+    //         status_text: status,
+    //         status_emoji: `:${statusEmoji}:`,
+    //         status_expiration: (Date.now() / 1000) + (config.expireIn * 60)
+    //     }
+    // }).catch(console.error);
 }
 
 run();
